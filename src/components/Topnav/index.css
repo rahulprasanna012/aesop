@@ -1,0 +1,16 @@
+
+.bg-top-nav{
+    color: #ffffff;
+    background-color: #4D2952;
+    text-align: center;
+    padding: 1px;
+    font-size: 14px;
+    font-weight: 100;
+    letter-spacing: 2px;
+}
+
+.bg-top-nav:hover{
+    color: #ffffff;
+    text-decoration: underline;
+    cursor: pointer;
+}

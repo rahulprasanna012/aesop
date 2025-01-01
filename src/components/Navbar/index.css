@@ -1,0 +1,40 @@
+.navbar-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar {
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.search-input{
+    border: none;
+}
+
+.search-container{
+
+    border-radius: 40px;
+    border-style:solid ;
+    border-width:1px;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .navbar-header {
+
+        flex-direction: column;
+    }
+
+    .navbar {
+        padding-left: 5%;  
+        padding-right: 5%;
+    }
+}
