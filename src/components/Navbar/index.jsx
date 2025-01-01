@@ -4,7 +4,7 @@ import { CiSearch } from "react-icons/ci";
 import { RiAccountCircleLine } from "react-icons/ri";
 import { IoCartOutline } from "react-icons/io5";
 import { IoMdHeartEmpty } from "react-icons/io";
-import './index.css'
+import './index.css';
 import { Link } from 'react-router-dom';
 
 const navItems = [
@@ -22,45 +22,47 @@ const navItems = [
   "Appointments",
 ];
 
-
-// const navItemsDetails=[{
-//   id:navItems[0],
-//   title:navItems[0],
-//   listOfItems:[{title: 'New additions',items:["Top-to-Toe Trio","Citrus Fragrance Duo","Polish & Replenish Hand Duo"]},{title: "Notable formulations",items:[Resurrection Aromatique Hand Wash
-//     "Resurrection Aromatique Hand Balm",
-//     "Resurrection Aromatique Hand Balm in aluminium tube", 
-//     Resurrection Aromatique Hand Balm",
-//     Citrus, woody, herbaceous"
-  
-//     Post-Poo Drops
-//     Geranium Leaf Body Cleanser]}]
-
-// }]
-
 const Navbar = () => {
-  const [activeItem, setActiveItem] = useState(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeItem, setActiveItem] = useState(null); // State to track active item
 
-  const handleItemClick = (item) => {
-    setActiveItem(item === activeItem ? null : item); // Toggle content
+  // Toggle the menu visibility
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Handle the menu item click and set it as active
+  const handleMenuItemClick = (item) => {
+    setActiveItem(item); // Set clicked item as active
+    setIsMenuOpen(false); // Close the menu
   };
 
   return (
     <div>
       <Topnav />
       <nav className="navbar mt-5">
-        <div className="navbar-header ">
+        <div className="navbar-header">
           <div className="search-container px-4 h-10">
-            
-            <input type="text" placeholder="Hey, What you looking for?" className='search-input w-full outline-none' />
+            <input 
+              type="text" 
+              placeholder="Hey, what are you looking for?" 
+              className='search-input w-full outline-none' 
+            />
             <CiSearch size="20" />
           </div>
-          <div className='leading-7'>
-          <h1 className="logo">Aesop</h1>
-          <p className='text-[15px] mt-3'>THUSTED ONLINE SHOPPING</p>
-
+          <div className='logo-card'>
+            <div className='leading-7'>
+              <h1 className="logo">Aesop</h1>
+              <p className='text-[15px] mt-3'>TRUSTED ONLINE SHOPPING</p>
+            </div>
+            <div className="hamburger-menu" onClick={toggleMenu}>
+              <div className="bar"></div>
+              <div className="bar"></div>
+              <div className="bar"></div>
+            </div>
           </div>
           
-          <div className="user-actions ">
+          <div className="user-actions">
             <Link to='/auth' className='link'>
               <RiAccountCircleLine size="25" />
               <span>Account</span>
@@ -71,35 +73,26 @@ const Navbar = () => {
             </Link>
             <Link to='/wishlist' className='link'>
               <IoMdHeartEmpty size="25" />
-              <span >Wishlist</span>
+              <span>Wishlist</span>
             </Link>
           </div>
         </div>
 
-        <ul className="navbar-menu">
+        {/* Navbar Menu for Desktop and Mobile */}
+        <ul className={`navbar-menu ${isMenuOpen ? 'show-menu' : ''}`}>
           {navItems.map((item, index) => (
-            // <li key={index} className={(item===activeItem)?"isClicked":"navbar-item"}>
-            //   <button onClick={() => handleItemClick(item)}>{item}</button>
-            // </li>
-
-            <li key={index} className="navbar-item">
-              <Link to={}>{item}</Link>
+            <li
+              key={index}
+              className={item === activeItem ? "isClicked" : "navbar-item"}
+              onClick={() => handleMenuItemClick(item)} // Pass item as argument
+            >
+              <Link to={`/${item.replace(/ & /g, "-").toLowerCase()}`}>
+                {item}
+              </Link>
             </li>
           ))}
         </ul>
       </nav>
-
-      {/* Content Section
-      {activeItem && (
-        <div className="content-section">
-          <h2>{activeItem}</h2>
-          <p>
-            This is some content related to <strong>{activeItem}</strong>. You
-            can add more detailed information or elements here.
-          </p>
-          <button onClick={() => setActiveItem(null)}>Close</button>
-        </div>
-      )} */}
     </div>
   );
 };
