@@ -22,6 +22,21 @@ const navItems = [
   "Appointments",
 ];
 
+
+// const navItemsDetails=[{
+//   id:navItems[0],
+//   title:navItems[0],
+//   listOfItems:[{title: 'New additions',items:["Top-to-Toe Trio","Citrus Fragrance Duo","Polish & Replenish Hand Duo"]},{title: "Notable formulations",items:[Resurrection Aromatique Hand Wash
+//     "Resurrection Aromatique Hand Balm",
+//     "Resurrection Aromatique Hand Balm in aluminium tube", 
+//     Resurrection Aromatique Hand Balm",
+//     Citrus, woody, herbaceous"
+  
+//     Post-Poo Drops
+//     Geranium Leaf Body Cleanser]}]
+
+// }]
+
 const Navbar = () => {
   const [activeItem, setActiveItem] = useState(null);
 
@@ -32,41 +47,49 @@ const Navbar = () => {
   return (
     <div>
       <Topnav />
-      <nav className="navbar">
+      <nav className="navbar mt-5">
         <div className="navbar-header ">
-          <div className="search-container ">
+          <div className="search-container px-4 h-10">
             
-            <input type="text" placeholder="Hey, What you looking for?" className='search-input' />
+            <input type="text" placeholder="Hey, What you looking for?" className='search-input w-full outline-none' />
             <CiSearch size="20" />
           </div>
+          <div className='leading-7'>
+          <h1 className="logo">Aesop</h1>
+          <p className='text-[15px] mt-3'>THUSTED ONLINE SHOPPING</p>
 
-          <h1 className=" text-3xl">Aesop</h1>
-          <div className="user-actions order-2">
-            <Link to='/auth' className=''>
+          </div>
+          
+          <div className="user-actions ">
+            <Link to='/auth' className='link'>
               <RiAccountCircleLine size="25" />
               <span>Account</span>
             </Link>
-            <Link to='/cart'>
+            <Link to='/cart' className='link'>
               <IoCartOutline size="25" />
               <span>Cart</span>
             </Link>
-            <Link to='/wishlist'>
+            <Link to='/wishlist' className='link'>
               <IoMdHeartEmpty size="25" />
-              <span>Wishlist</span>
+              <span >Wishlist</span>
             </Link>
           </div>
         </div>
 
         <ul className="navbar-menu">
           {navItems.map((item, index) => (
+            // <li key={index} className={(item===activeItem)?"isClicked":"navbar-item"}>
+            //   <button onClick={() => handleItemClick(item)}>{item}</button>
+            // </li>
+
             <li key={index} className="navbar-item">
-              <button onClick={() => handleItemClick(item)}>{item}</button>
+              <Link to={}>{item}</Link>
             </li>
           ))}
         </ul>
       </nav>
 
-      {/* Content Section */}
+      {/* Content Section
       {activeItem && (
         <div className="content-section">
           <h2>{activeItem}</h2>
@@ -76,7 +99,7 @@ const Navbar = () => {
           </p>
           <button onClick={() => setActiveItem(null)}>Close</button>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
