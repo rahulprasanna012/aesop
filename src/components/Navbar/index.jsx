@@ -18,8 +18,8 @@ const navItems = [
   "Kits & Travel",
   "Read",
   "Stores",
-  "Facial",
-  "Appointments",
+  "Facial Appointments",
+ 
 ];
 
 const Navbar = () => {

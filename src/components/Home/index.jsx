@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div>
       <Sliping />
-      <div className="relative bg-gray-100 home-bg">
+      <div className="relative home-bg">
         <SwiperHome />
         <Collection />
         <div className="fixed bottom-3 right-3 z-10"> {/* Fixed positioning */}
