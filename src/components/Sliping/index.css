@@ -27,7 +27,9 @@
 @media (max-width: 768px) {
     .card-slipping {
         flex-direction: column;
-        padding: 20px;
+        padding: 10px;
+        align-items: center;
+        margin-top: 10px;
     }
 
     .or {
@@ -39,6 +41,7 @@
 @media (max-width: 480px) {
     .card-slipping {
         font-size: 16px;
+        padding: 10px;
     }
 
     .or {

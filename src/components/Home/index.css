@@ -1,5 +1,15 @@
 .home-bg{
-    padding-left: 7%;
-    padding-right: 7%;
+    padding-left: 8%;
+    padding-right: 8%;
     padding-top: 2%;
+}
+
+
+@media screen and(max-width: 768px){
+    .home-bg{
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 2%;
+    }
+
 }

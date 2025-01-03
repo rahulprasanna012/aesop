@@ -31,7 +31,7 @@ export default function SwiperHome() {
       }}
       navigation={true}
       modules={[Autoplay, Pagination, Navigation]}
-      className="mySwiper my-10"
+      className="mySwiper mb-10"
     >
       <SwiperSlide>
         <div className="swiper-slide-one">
